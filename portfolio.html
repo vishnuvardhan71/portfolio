@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vishnu | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* -------------------- RESET -------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --accent: #00d4b4; /* Neon teal */
+        }
+
+        /* -------------------- NAVBAR -------------------- */
+        .navbar {
+            width: 100%;
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #161b22;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #e6edf3;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* -------------------- HERO -------------------- */
+        .hero {
+            padding: 120px 10%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-left {
+            flex: 1 1 450px;
+        }
+
+        .hero-left h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero-left span {
+            color: var(--accent);
+        }
+
+        .hero-left p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #d0d7de;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn.primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn.primary:hover {
+            background: #00f0cc;
+        }
+
+        .btn.outline {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn.outline:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .hero-right img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #161b22;
+            box-shadow: 0 4px 12px rgba(0, 255, 200, 0.3);
+        }
+
+        /* -------------------- ABOUT -------------------- */
+        #about {
+            padding: 80px 10%;
+            background: #161b22;
+        }
+
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .about-details p {
+            margin-top: 8px;
+            font-weight: 500;
+            color: #d0d7de;
+        }
+
+        /* -------------------- SKILLS -------------------- */
+        #skills {
+            padding: 80px 10%;
+            text-align: center;
+            background: #0d1117;
+        }
+
+        #skills h2 {
+            color: var(--accent);
+        }
+
+        .skills-list {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill-box {
+            padding: 18px 25px;
+            background: #161b22;
+            border-radius: 12px;
+            font-weight: 600;
+            color: #e6edf3;
+            box-shadow: 0 4px 12px rgba(0, 255, 200, 0.1);
+            border: 1px solid #21262d;
+            transition: 0.3s;
+        }
+
+        /* Hover effect for skills */
+        .skill-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent);
+            border-color: var(--accent);
+            color: #000;
+            background: var(--accent);
+        }
+
+        /* -------------------- PROJECTS -------------------- */
+        #projects {
+            padding: 80px 10%;
+            background: #161b22;
+            text-align: center;
+        }
+
+        #projects h2 {
+            color: var(--accent);
+        }
+
+        .projects-grid {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .project-card {
+            width: 300px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 14px rgba(0, 255, 200, 0.12);
+            cursor: pointer;
+            border: 1px solid #21262d;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .project-info {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(6px);
+            background: rgba(0, 0, 0, 0.45);
+            color: var(--accent);
+            display: flex;
+            opacity: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-card:hover .project-info {
+            opacity: 1;
+        }
+
+        /* -------------------- CONTACT -------------------- */
+        #contact {
+            padding: 80px 10%;
+            text-align: center;
+            background: #0d1117;
+        }
+
+        #contact h2 {
+            color: var(--accent);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid #21262d;
+            background: #161b22;
+            color: #e6edf3;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .contact-form button {
+            margin-top: 20px;
+        }
+
+        /* -------------------- FOOTER -------------------- */
+        footer {
+            padding: 40px;
+            background: #161b22;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--accent);
+            margin: 0 10px;
+            font-size: 22px;
+        }
+
+        footer a:hover {
+            color: #00f0cc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">VISHNU</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Hello, I'm <span>N Vishnu Vardhan Gupta</span></h1>
+            <p>A passionate student of IoT, Cyber Security & Blockchain Engineering.  
+                I build modern responsive websites and projects.</p>
+
+            <a href="#contact" class="btn primary">Hire Me</a>
+            <!-- Updated download button -->
+            <a href="./resume.pdf" class="btn outline" download>Download Resume</a>
+        </div>
+
+        <div class="hero-right">
+            <img src="./mine.jpg" alt="My Photo" /> 
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about-grid">
+
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>I am currently pursuing B.Tech in CIC (IoT & Cyber Security including Blockchain) Engineering at SRKR Engineering College.</p>
+
+                <div class="about-details">
+                    <p><strong>Name:</strong> N Vishnu Vardhan Gupta</p>
+                    <p><strong>Email:</strong> narayanavishnuvardhangupta@gmail.com</p>
+                    <p><strong>Phone:</strong> 6305740408</p>
+                    <p><strong>Location:</strong> Andhra Pradesh, India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-list">
+            <div class="skill-box">Python</div>
+            <div class="skill-box">C</div>
+            <div class="skill-box">HTML</div>
+            <div class="skill-box">CSS</div>
+            <div class="skill-box">DSA</div>
+            <div class="skill-box">DBMS</div>
+            <div class="skill-box">OOPS</div>
+            <div class="skill-box">Operating Systems</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>My Projects</h2>
+
+        <div class="projects-grid">
+            <a href="https://santhosh489.github.io/fsdproject/" target="_blank">
+            <div class="project-card">
+                
+                <img src="data:image/jpeg;base64,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" />
+                <div class="project-info">
+                    <h3>IPL 2024 Clone Website</h3>
+                    <p>HTML • CSS • JavaScript</p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+
+        <form class="contact-form" onsubmit="sendMail(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="btn primary">Send Email</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Vishnu. All rights reserved.</p>
+        <a href="https://linkedin.com/in/vishnu-vardhan-gupta-a7a0a4321"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:narayanavishnuvardhangupta@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        function sendMail(e) {
+            e.preventDefault();
+            alert("Your message has been submitted!");
+        }
+    </script>
+
+</body>
+
+</html>
